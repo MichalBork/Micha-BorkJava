@@ -153,8 +153,8 @@ export default {
         acceptClass: 'p-button-danger',
         accept: () => {
           this.creditInterest = 3
-          this.howLongInYears = 0
-          this.totalValueOfLoan = 0
+          this.howLongInYears = null
+          this.totalValueOfLoan = null
           this.result = ''
           this.$toast.add({severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000});
         },
