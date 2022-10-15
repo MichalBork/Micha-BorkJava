@@ -1,14 +1,21 @@
 package com.example.creditcalculator;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class CalcOdds {
 
-
+    @Min(value = 1)
     private float totalValueOfLoan;
+    @Min(value = 1)
     private float howLongInYears;
+    @Min(value = 1)
     private float creditInterest;
-    private float result;
 
-    public float getCreditInterest() {
+
+    public Float getCreditInterest() {
         return creditInterest;
     }
 
@@ -34,10 +41,10 @@ public class CalcOdds {
     }
 
     public float getResult() {
-        return result;
-    }
+        float localCreditInterest = getTotalValueOfLoan() * (getCreditInterest() / 100);
+        return getTotalValueOfLoan() / (getHowLongInYears() * 12) + localCreditInterest;
 
-    public void setResult(float result) {
-        this.result = result;
     }
 }
+
+
