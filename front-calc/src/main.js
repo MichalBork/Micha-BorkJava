@@ -7,7 +7,7 @@ import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import "./index.css";
-
+import 'primeicons/primeicons.css';
 import { createApp } from "vue";
 import { router } from "./router";
 import PrimeVue from "primevue/config";

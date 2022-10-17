@@ -20,7 +20,7 @@ import java.util.Map;
 public class CalculatorController {
 
 
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin(origins = "http://localhost:3454")
     @PostMapping(
             value = "/get-credit",
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
