@@ -2,9 +2,11 @@ package com.example.creditcalculator.rest;
 
 import com.example.creditcalculator.model.PersonDTO;
 import com.example.creditcalculator.service.PersonService;
+
 import java.util.List;
 import java.util.UUID;
 import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,7 @@ public class PersonResource {
         this.personService = personService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @CrossOrigin(origins = "http://localhost:3454")
     public ResponseEntity<List<PersonDTO>> getAllPersons() {
         return ResponseEntity.ok(personService.findAll());
@@ -33,24 +35,23 @@ public class PersonResource {
         return ResponseEntity.ok(personService.get(id));
     }
 
-    @PostMapping
+    @PostMapping("/create")
     @CrossOrigin(origins = "http://localhost:3454")
     public ResponseEntity<UUID> createPerson(@RequestBody @Valid final PersonDTO personDTO) {
         return new ResponseEntity<>(personService.create(personDTO), HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PostMapping("/edit")
     @CrossOrigin(origins = "http://localhost:3454")
-    public ResponseEntity<Void> updatePerson(@PathVariable final UUID id,
-            @RequestBody @Valid final PersonDTO personDTO) {
-        personService.update(id, personDTO);
+    public ResponseEntity<Void> updatePerson(@RequestBody @Valid final PersonDTO personDTO) {
+        personService.update(personDTO.getId(), personDTO);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/delete")
     @CrossOrigin(origins = "http://localhost:3454")
-    public ResponseEntity<Void> deletePerson(@PathVariable final UUID id) {
-        personService.delete(id);
+    public ResponseEntity<Void> deletePerson(@RequestBody PersonDTO personDTO) {
+        personService.delete(personDTO.getId());
         return ResponseEntity.noContent().build();
     }
 

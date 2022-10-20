@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="card">
-      <TabMenu :model="items" />
+      <TabMenu :key="reLoad"  :model="items" />
       <router-view/>
     </div>
 
@@ -42,7 +42,7 @@ export default {
   data()
   {
     return {
-      desp: ''
+      reLoad:0
     }
   }
 
