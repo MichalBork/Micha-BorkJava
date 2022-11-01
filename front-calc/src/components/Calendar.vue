@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import CustomerService from '../service/Person';
+import CustomerService from '../service/AuthService';
 import axios from "axios";
 
 export default {
@@ -113,7 +113,6 @@ export default {
   },
   customerService: null,
   created() {
-    this.customerService = new CustomerService();
   },
   beforeMount() {
 

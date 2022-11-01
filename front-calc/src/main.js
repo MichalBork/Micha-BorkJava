@@ -109,8 +109,11 @@ import VirtualScroller from 'primevue/virtualscroller';
 import App from "@/App";
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Axios from "axios";
 
 const app = createApp(App);
+
+
 
 app.use(PrimeVue, { ripple: true });
 app.use(ConfirmationService);
